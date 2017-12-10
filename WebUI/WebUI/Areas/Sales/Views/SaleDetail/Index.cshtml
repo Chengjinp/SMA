@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Repository.DAL.Data.SMA_Sale_Detail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Sale.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Sale_Detail_Type.TypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_User.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Sale.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Sale_Detail_Type.TypeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SaleDetailId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SaleDetailId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SaleDetailId })
+        </td>
+    </tr>
+}
+
+</table>

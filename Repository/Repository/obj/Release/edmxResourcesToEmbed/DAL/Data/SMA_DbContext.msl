@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppDb_SMAModelStoreContainer" CdmEntityContainer="AppDb_SMAEntities">
+    <EntitySetMapping Name="SMA_Inventory">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory">
+        <MappingFragment StoreEntitySet="SMA_Inventory">
+          <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="BookValue" ColumnName="BookValue" />
+          <ScalarProperty Name="WebRef" ColumnName="WebRef" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Inventory_Category">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category">
+        <MappingFragment StoreEntitySet="SMA_Inventory_Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Inventory_Category_Type">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category_Type">
+        <MappingFragment StoreEntitySet="SMA_Inventory_Category_Type">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_Address">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Address">
+        <MappingFragment StoreEntitySet="SMA_Lookup_Address">
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_Contact">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Contact">
+        <MappingFragment StoreEntitySet="SMA_Lookup_Contact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PrimaryAddressTypeId" ColumnName="PrimaryAddressTypeId" />
+          <ScalarProperty Name="PrimaryAddressId" ColumnName="PrimaryAddressId" />
+          <ScalarProperty Name="SecondaryAddressTypeId" ColumnName="SecondaryAddressTypeId" />
+          <ScalarProperty Name="SecondaryAddressId" ColumnName="SecondaryAddressId" />
+          <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+          <ScalarProperty Name="SecondaryPhone" ColumnName="SecondaryPhone" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="IMAddress" ColumnName="IMAddress" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="NativeLauguage" ColumnName="NativeLauguage" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_Customer">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Customer">
+        <MappingFragment StoreEntitySet="SMA_Lookup_Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_Designer">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Designer">
+        <MappingFragment StoreEntitySet="SMA_Lookup_Designer">
+          <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
+          <ScalarProperty Name="DesignerNumber" ColumnName="DesignerNumber" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_SalesRep">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_SalesRep">
+        <MappingFragment StoreEntitySet="SMA_Lookup_SalesRep">
+          <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
+          <ScalarProperty Name="SalesRepNo" ColumnName="SalesRepNo" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_User">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User">
+        <MappingFragment StoreEntitySet="SMA_Lookup_User">
+          <ScalarProperty Name="Sel" ColumnName="Sel" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_User_Role">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User_Role">
+        <MappingFragment StoreEntitySet="SMA_Lookup_User_Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Lookup_Vendor">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Vendor">
+        <MappingFragment StoreEntitySet="SMA_Lookup_Vendor">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="VendorNumber" ColumnName="VendorNumber" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Sale">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale">
+        <MappingFragment StoreEntitySet="SMA_Sale">
+          <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
+          <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
+          <ScalarProperty Name="InvYear" ColumnName="InvYear" />
+          <ScalarProperty Name="InvMonth" ColumnName="InvMonth" />
+          <ScalarProperty Name="TransationDate" ColumnName="TransationDate" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Sale_Detail">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail">
+        <MappingFragment StoreEntitySet="SMA_Sale_Detail">
+          <ScalarProperty Name="SaleDetailId" ColumnName="SaleDetailId" />
+          <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+          <ScalarProperty Name="DetailType" ColumnName="DetailType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Sale_Detail_Type">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail_Type">
+        <MappingFragment StoreEntitySet="SMA_Sale_Detail_Type">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMA_Sale_Inventory_Xrf">
+      <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Inventory_Xrf">
+        <MappingFragment StoreEntitySet="SMA_Sale_Inventory_Xrf">
+          <ScalarProperty Name="xrfId" ColumnName="xrfId" />
+          <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+          <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />
+          <ScalarProperty Name="EnterUserId" ColumnName="EnterUserId" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

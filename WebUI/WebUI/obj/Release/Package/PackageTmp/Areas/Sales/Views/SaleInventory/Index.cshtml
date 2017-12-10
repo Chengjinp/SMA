@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Repository.DAL.Data.SMA_Sale_Inventory_Xrf>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Inventory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Sale.InvoiceNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Inventory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_User.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Sale.InvoiceNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.xrfId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.xrfId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.xrfId })
+        </td>
+    </tr>
+}
+
+</table>

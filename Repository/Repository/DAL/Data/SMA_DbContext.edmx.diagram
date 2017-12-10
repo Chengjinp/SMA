@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="819aff0b8b7d45d9ba4d45862060bc46" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory" Width="1.5" PointX="4.625" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory_Category" Width="1.875" PointX="1.875" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory_Category_Type" Width="2.625" PointX="1.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_Address" Width="2" PointX="5.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_Contact" Width="1.875" PointX="10.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_Customer" Width="2" PointX="12.125" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_Designer" Width="2" PointX="13.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_SalesRep" Width="2.125" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_User" Width="2" PointX="1.375" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_User_Role" Width="2" PointX="0.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Lookup_Vendor" Width="2" PointX="7.875" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Sale" Width="1.625" PointX="10" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Sale_Detail" Width="2.5" PointX="12.125" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Sale_Detail_Type" Width="1.875" PointX="15.375" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Sale_Inventory_Xrf" Width="1.875" PointX="7.375" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Inventory_SMA_Inventory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Inventory_SMA_Inventory_Category_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Inventory_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Inventory_SMA_Lookup_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Address_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Contact_SMA_Lookup_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Contact_SMA_Lookup_Address1" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Contact_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Designer_SMA_Lookup_Contact" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_SMA_Lookup_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Designer_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_SMA_Lookup_Designer" ManuallyRouted="true" >
+          <ConnectorPoint PointX="14.96875" PointY="18.25" />
+          <ConnectorPoint PointX="14.96875" PointY="12.741006460503467" />
+          <ConnectorPoint PointX="12.7284375" PointY="12.741006460503467" />
+          <ConnectorPoint PointX="12.7284375" PointY="12.750229989949938" />
+          <ConnectorPoint PointX="11.625" PointY="12.750229989949938" />
+        </AssociationConnector>
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_SMA_Lookup_SalesRep" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Vendor_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Detail_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_SMA_Lookup_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Detail_SMA_Sale" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Inventory_Xrf_SMA_Sale" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User" />
+        <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

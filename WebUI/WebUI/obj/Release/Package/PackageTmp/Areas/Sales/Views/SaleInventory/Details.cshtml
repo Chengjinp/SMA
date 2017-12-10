@@ -1,0 +1,50 @@
+﻿@model Repository.DAL.Data.SMA_Sale_Inventory_Xrf
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SMA_Sale_Inventory_Xrf</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Inventory.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Inventory.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_User.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Sale.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Sale.InvoiceNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.xrfId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

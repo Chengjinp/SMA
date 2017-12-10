@@ -1,0 +1,106 @@
+﻿@model Repository.DAL.Data.SMA_Sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SMA_Sale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Customer.CustomerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Customer.CustomerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Designer.DesignerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Designer.DesignerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_SalesRep.SalesRepNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_SalesRep.SalesRepNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_User.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

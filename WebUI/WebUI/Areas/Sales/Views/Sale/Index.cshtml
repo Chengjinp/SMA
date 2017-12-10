@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Repository.DAL.Data.SMA_Sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Customer.CustomerNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Designer.DesignerNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_SalesRep.SalesRepNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_Customer.CustomerNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_Designer.DesignerNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_SalesRep.SalesRepNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SaleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SaleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SaleId })
+        </td>
+    </tr>
+}
+
+</table>

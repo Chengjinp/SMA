@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Repository.DAL.Data.SMA_Lookup_Vendor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiscountRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Contact.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiscountRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_Contact.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VendorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VendorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VendorId })
+        </td>
+    </tr>
+}
+
+</table>

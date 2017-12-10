@@ -1,0 +1,74 @@
+﻿@model Repository.DAL.Data.SMA_Lookup_Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SMA_Lookup_Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesRepId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesRepId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Contact.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Contact.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_User.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

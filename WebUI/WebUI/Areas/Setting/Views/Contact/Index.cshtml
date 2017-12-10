@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Repository.DAL.Data.SMA_Lookup_Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryAddressTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondaryAddressTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondaryPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NativeLauguage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address1.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryAddressTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondaryAddressTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondaryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NativeLauguage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_Address.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_Address1.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMA_Lookup_User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContactId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContactId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContactId })
+        </td>
+    </tr>
+}
+
+</table>

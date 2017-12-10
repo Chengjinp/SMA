@@ -1,0 +1,152 @@
+﻿@model Repository.DAL.Data.SMA_Lookup_Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryAddressTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryAddressTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryAddressTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryAddressTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NativeLauguage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NativeLauguage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Address.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address1.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Address1.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_User.FirstName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

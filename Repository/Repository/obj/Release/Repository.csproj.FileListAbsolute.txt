@@ -1,0 +1,12 @@
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\Repository.dll.config
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\Repository.dll
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\Repository.pdb
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\EntityFramework.dll
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\Newtonsoft.Json.dll
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\EntityFramework.xml
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Help\Lessons\SMA\Repository\Repository\bin\Release\Newtonsoft.Json.xml
+C:\Help\Lessons\SMA\Repository\Repository\obj\Release\Repository.csprojResolveAssemblyReference.cache
+C:\Help\Lessons\SMA\Repository\Repository\obj\Release\Repository.dll
+C:\Help\Lessons\SMA\Repository\Repository\obj\Release\Repository.pdb

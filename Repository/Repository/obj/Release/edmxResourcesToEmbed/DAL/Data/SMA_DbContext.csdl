@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppDb_SMAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SMA_Inventory">
+    <Key>
+      <PropertyRef Name="ProductionId" />
+    </Key>
+    <Property Name="ProductionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="VendorId" Type="Int32" />
+    <Property Name="BookValue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="WebRef" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Inventory_Category" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category" FromRole="SMA_Inventory" ToRole="SMA_Inventory_Category" />
+    <NavigationProperty Name="SMA_Inventory_Category_Type" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category_Type" FromRole="SMA_Inventory" ToRole="SMA_Inventory_Category_Type" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_User" FromRole="SMA_Inventory" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Lookup_Vendor" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_Vendor" FromRole="SMA_Inventory" ToRole="SMA_Lookup_Vendor" />
+    <NavigationProperty Name="SMA_Sale_Inventory_Xrf" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" FromRole="SMA_Inventory" ToRole="SMA_Sale_Inventory_Xrf" />
+  </EntityType>
+  <EntityType Name="SMA_Inventory_Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category" FromRole="SMA_Inventory_Category" ToRole="SMA_Inventory" />
+    <NavigationProperty Name="SMA_Inventory_Category_Type" Relationship="Self.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" FromRole="SMA_Inventory_Category" ToRole="SMA_Inventory_Category_Type" />
+  </EntityType>
+  <EntityType Name="SMA_Inventory_Category_Type">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category_Type" FromRole="SMA_Inventory_Category_Type" ToRole="SMA_Inventory" />
+    <NavigationProperty Name="SMA_Inventory_Category" Relationship="Self.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" FromRole="SMA_Inventory_Category_Type" ToRole="SMA_Inventory_Category" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Address_SMA_Lookup_User" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_Contact1" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address1" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_Contact" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PrimaryAddressTypeId" Type="Int32" />
+    <Property Name="PrimaryAddressId" Type="Int32" />
+    <Property Name="SecondaryAddressTypeId" Type="Int32" />
+    <Property Name="SecondaryAddressId" Type="Int32" />
+    <Property Name="PrimaryPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SecondaryPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IMAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WebSite" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NativeLauguage" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_Address" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Address" />
+    <NavigationProperty Name="SMA_Lookup_Address1" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address1" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Address" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_User" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Lookup_Customer" Relationship="Self.FK_SMA_Lookup_Customer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Customer" />
+    <NavigationProperty Name="SMA_Lookup_Designer" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Designer" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_SalesRep" />
+    <NavigationProperty Name="SMA_Lookup_Vendor" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Vendor" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SalesRepId" Type="Int32" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Customer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Customer" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Customer_SMA_Lookup_User" FromRole="SMA_Lookup_Customer" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Customer" FromRole="SMA_Lookup_Customer" ToRole="SMA_Sale" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_Customer" ToRole="SMA_Lookup_SalesRep" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_Designer">
+    <Key>
+      <PropertyRef Name="DesignerId" />
+    </Key>
+    <Property Name="DesignerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesignerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DiscountRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Designer" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_User" FromRole="SMA_Lookup_Designer" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Designer" FromRole="SMA_Lookup_Designer" ToRole="SMA_Sale" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_SalesRep">
+    <Key>
+      <PropertyRef Name="SalesRepId" />
+    </Key>
+    <Property Name="SalesRepId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalesRepNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Lookup_User_Role" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_User_Role" />
+    <NavigationProperty Name="SMA_Lookup_User1" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User1" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Sale" />
+    <NavigationProperty Name="SMA_Lookup_Customer" Relationship="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_Customer" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LoginName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Inventory" />
+    <NavigationProperty Name="SMA_Lookup_Address" Relationship="Self.FK_SMA_Lookup_Address_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_Address" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_Customer" Relationship="Self.FK_SMA_Lookup_Customer_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_Customer" />
+    <NavigationProperty Name="SMA_Lookup_Designer" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_Designer" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_SalesRep" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep1" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User1" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_SalesRep" />
+    <NavigationProperty Name="SMA_Lookup_User_Role" Relationship="Self.FK_SMA_Lookup_User_SMA_Lookup_User_Role" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_User_Role" />
+    <NavigationProperty Name="SMA_Lookup_Vendor" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_Vendor" />
+    <NavigationProperty Name="SMA_Sale_Detail" Relationship="Self.FK_SMA_Sale_Detail_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Sale_Detail" />
+    <NavigationProperty Name="SMA_Sale_Inventory_Xrf" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Sale_Inventory_Xrf" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Sale" />
+    <NavigationProperty Name="SMA_Lookup_User1" Relationship="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_User1" />
+    <NavigationProperty Name="SMA_Lookup_User2" Relationship="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User" FromRole="SMA_Lookup_User1" ToRole="SMA_Lookup_User" />
+    <Property Name="Sel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_User_Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" FromRole="SMA_Lookup_User_Role" ToRole="SMA_Lookup_SalesRep" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_User_SMA_Lookup_User_Role" FromRole="SMA_Lookup_User_Role" ToRole="SMA_Lookup_User" />
+  </EntityType>
+  <EntityType Name="SMA_Lookup_Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VendorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="DiscountRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_Vendor" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Inventory" />
+    <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Lookup_Contact" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_User" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Lookup_User" />
+  </EntityType>
+  <EntityType Name="SMA_Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DesignerId" Type="Int32" />
+    <Property Name="SalesRepId" Type="Int32" />
+    <Property Name="InvYear" Type="Int16" />
+    <Property Name="InvMonth" Type="Byte" />
+    <Property Name="TransationDate" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SMA_Lookup_Customer" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Customer" FromRole="SMA_Sale" ToRole="SMA_Lookup_Customer" />
+    <NavigationProperty Name="SMA_Lookup_Designer" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Designer" FromRole="SMA_Sale" ToRole="SMA_Lookup_Designer" />
+    <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Sale_SMA_Lookup_SalesRep" FromRole="SMA_Sale" ToRole="SMA_Lookup_SalesRep" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_SMA_Lookup_User" FromRole="SMA_Sale" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale_Detail" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale" FromRole="SMA_Sale" ToRole="SMA_Sale_Detail" />
+    <NavigationProperty Name="SMA_Sale_Inventory_Xrf" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Sale" FromRole="SMA_Sale" ToRole="SMA_Sale_Inventory_Xrf" />
+  </EntityType>
+  <EntityType Name="SMA_Sale_Detail">
+    <Key>
+      <PropertyRef Name="SaleDetailId" />
+    </Key>
+    <Property Name="SaleDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleId" Type="Int32" />
+    <Property Name="DetailType" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_Detail_SMA_Lookup_User" FromRole="SMA_Sale_Detail" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale" FromRole="SMA_Sale_Detail" ToRole="SMA_Sale" />
+    <NavigationProperty Name="SMA_Sale_Detail_Type" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" FromRole="SMA_Sale_Detail" ToRole="SMA_Sale_Detail_Type" />
+  </EntityType>
+  <EntityType Name="SMA_Sale_Detail_Type">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="SMA_Sale_Detail" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" FromRole="SMA_Sale_Detail_Type" ToRole="SMA_Sale_Detail" />
+  </EntityType>
+  <EntityType Name="SMA_Sale_Inventory_Xrf">
+    <Key>
+      <PropertyRef Name="xrfId" />
+    </Key>
+    <Property Name="xrfId" Type="Int32" Nullable="false" />
+    <Property Name="SaleId" Type="Int32" />
+    <Property Name="ProductionId" Type="Int32" />
+    <Property Name="EnterUserId" Type="Int32" />
+    <Property Name="EnterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Inventory" />
+    <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Lookup_User" />
+    <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Sale" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Sale" />
+  </EntityType>
+  <Association Name="FK_SMA_Inventory_SMA_Inventory_Category">
+    <End Role="SMA_Inventory_Category" Type="Self.SMA_Inventory_Category" Multiplicity="0..1" />
+    <End Role="SMA_Inventory" Type="Self.SMA_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Inventory_Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="SMA_Inventory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Inventory_SMA_Inventory_Category_Type">
+    <End Role="SMA_Inventory_Category_Type" Type="Self.SMA_Inventory_Category_Type" Multiplicity="0..1" />
+    <End Role="SMA_Inventory" Type="Self.SMA_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Inventory_Category_Type">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="SMA_Inventory">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Inventory_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Inventory" Type="Self.SMA_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Inventory">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Inventory_SMA_Lookup_Vendor">
+    <End Role="SMA_Lookup_Vendor" Type="Self.SMA_Lookup_Vendor" Multiplicity="0..1" />
+    <End Role="SMA_Inventory" Type="Self.SMA_Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Vendor">
+        <PropertyRef Name="VendorId" />
+      </Principal>
+      <Dependent Role="SMA_Inventory">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Inventory_Xrf_SMA_Inventory">
+    <End Role="SMA_Inventory" Type="Self.SMA_Inventory" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Inventory_Xrf" Type="Self.SMA_Sale_Inventory_Xrf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Inventory">
+        <PropertyRef Name="ProductionId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Inventory_Xrf">
+        <PropertyRef Name="ProductionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Inventory_Category_Type_SMA_Inventory_Category">
+    <End Role="SMA_Inventory_Category" Type="Self.SMA_Inventory_Category" Multiplicity="0..1" />
+    <End Role="SMA_Inventory_Category_Type" Type="Self.SMA_Inventory_Category_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Inventory_Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="SMA_Inventory_Category_Type">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Address_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Address" Type="Self.SMA_Lookup_Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Address">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Contact_SMA_Lookup_Address">
+    <End Role="SMA_Lookup_Address" Type="Self.SMA_Lookup_Address" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Contact">
+        <PropertyRef Name="PrimaryAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Contact_SMA_Lookup_Address1">
+    <End Role="SMA_Lookup_Address" Type="Self.SMA_Lookup_Address" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Contact">
+        <PropertyRef Name="SecondaryAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Contact_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Contact">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Customer_SMA_Lookup_Contact">
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Customer" Type="Self.SMA_Lookup_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Customer">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Designer_SMA_Lookup_Contact">
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Designer" Type="Self.SMA_Lookup_Designer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Designer">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact">
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_SalesRep" Type="Self.SMA_Lookup_SalesRep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Vendor_SMA_Lookup_Contact">
+    <End Role="SMA_Lookup_Contact" Type="Self.SMA_Lookup_Contact" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Vendor" Type="Self.SMA_Lookup_Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Vendor">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Customer_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Customer" Type="Self.SMA_Lookup_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Customer">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_SMA_Lookup_Customer">
+    <End Role="SMA_Lookup_Customer" Type="Self.SMA_Lookup_Customer" Multiplicity="0..1" />
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="SMA_Sale">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Designer_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Designer" Type="Self.SMA_Lookup_Designer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Designer">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_SMA_Lookup_Designer">
+    <End Role="SMA_Lookup_Designer" Type="Self.SMA_Lookup_Designer" Multiplicity="0..1" />
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_Designer">
+        <PropertyRef Name="DesignerId" />
+      </Principal>
+      <Dependent Role="SMA_Sale">
+        <PropertyRef Name="DesignerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_SalesRep" Type="Self.SMA_Lookup_SalesRep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role">
+    <End Role="SMA_Lookup_User_Role" Type="Self.SMA_Lookup_User_Role" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_SalesRep" Type="Self.SMA_Lookup_SalesRep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User1">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_SalesRep" Type="Self.SMA_Lookup_SalesRep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_SMA_Lookup_SalesRep">
+    <End Role="SMA_Lookup_SalesRep" Type="Self.SMA_Lookup_SalesRep" Multiplicity="0..1" />
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="SalesRepId" />
+      </Principal>
+      <Dependent Role="SMA_Sale">
+        <PropertyRef Name="SalesRepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_User_SMA_Lookup_User_Role">
+    <End Role="SMA_Lookup_User_Role" Type="Self.SMA_Lookup_User_Role" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User_Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Vendor_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Lookup_Vendor" Type="Self.SMA_Lookup_Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Vendor">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Detail_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Detail" Type="Self.SMA_Sale_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Detail">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Inventory_Xrf" Type="Self.SMA_Sale_Inventory_Xrf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Inventory_Xrf">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_SMA_Lookup_User">
+    <End Role="SMA_Lookup_User" Type="Self.SMA_Lookup_User" Multiplicity="0..1" />
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Sale">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Detail_SMA_Sale">
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Detail" Type="Self.SMA_Sale_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Sale">
+        <PropertyRef Name="SaleId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Detail">
+        <PropertyRef Name="SaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Inventory_Xrf_SMA_Sale">
+    <End Role="SMA_Sale" Type="Self.SMA_Sale" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Inventory_Xrf" Type="Self.SMA_Sale_Inventory_Xrf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Sale">
+        <PropertyRef Name="SaleId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Inventory_Xrf">
+        <PropertyRef Name="SaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Sale_Detail_SMA_Sale_Detail_Type">
+    <End Role="SMA_Sale_Detail_Type" Type="Self.SMA_Sale_Detail_Type" Multiplicity="0..1" />
+    <End Role="SMA_Sale_Detail" Type="Self.SMA_Sale_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Sale_Detail_Type">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="SMA_Sale_Detail">
+        <PropertyRef Name="DetailType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppDb_SMAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SMA_Inventory" EntityType="Self.SMA_Inventory" />
+    <EntitySet Name="SMA_Inventory_Category" EntityType="Self.SMA_Inventory_Category" />
+    <EntitySet Name="SMA_Inventory_Category_Type" EntityType="Self.SMA_Inventory_Category_Type" />
+    <EntitySet Name="SMA_Lookup_Address" EntityType="Self.SMA_Lookup_Address" />
+    <EntitySet Name="SMA_Lookup_Contact" EntityType="Self.SMA_Lookup_Contact" />
+    <EntitySet Name="SMA_Lookup_Customer" EntityType="Self.SMA_Lookup_Customer" />
+    <EntitySet Name="SMA_Lookup_Designer" EntityType="Self.SMA_Lookup_Designer" />
+    <EntitySet Name="SMA_Lookup_SalesRep" EntityType="Self.SMA_Lookup_SalesRep" />
+    <EntitySet Name="SMA_Lookup_User" EntityType="Self.SMA_Lookup_User" />
+    <EntitySet Name="SMA_Lookup_User_Role" EntityType="Self.SMA_Lookup_User_Role" />
+    <EntitySet Name="SMA_Lookup_Vendor" EntityType="Self.SMA_Lookup_Vendor" />
+    <EntitySet Name="SMA_Sale" EntityType="Self.SMA_Sale" />
+    <EntitySet Name="SMA_Sale_Detail" EntityType="Self.SMA_Sale_Detail" />
+    <EntitySet Name="SMA_Sale_Detail_Type" EntityType="Self.SMA_Sale_Detail_Type" />
+    <EntitySet Name="SMA_Sale_Inventory_Xrf" EntityType="Self.SMA_Sale_Inventory_Xrf" />
+    <AssociationSet Name="FK_SMA_Inventory_SMA_Inventory_Category" Association="Self.FK_SMA_Inventory_SMA_Inventory_Category">
+      <End Role="SMA_Inventory_Category" EntitySet="SMA_Inventory_Category" />
+      <End Role="SMA_Inventory" EntitySet="SMA_Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Inventory_SMA_Inventory_Category_Type" Association="Self.FK_SMA_Inventory_SMA_Inventory_Category_Type">
+      <End Role="SMA_Inventory_Category_Type" EntitySet="SMA_Inventory_Category_Type" />
+      <End Role="SMA_Inventory" EntitySet="SMA_Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Inventory_SMA_Lookup_User" Association="Self.FK_SMA_Inventory_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Inventory" EntitySet="SMA_Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Inventory_SMA_Lookup_Vendor" Association="Self.FK_SMA_Inventory_SMA_Lookup_Vendor">
+      <End Role="SMA_Lookup_Vendor" EntitySet="SMA_Lookup_Vendor" />
+      <End Role="SMA_Inventory" EntitySet="SMA_Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" Association="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory">
+      <End Role="SMA_Inventory" EntitySet="SMA_Inventory" />
+      <End Role="SMA_Sale_Inventory_Xrf" EntitySet="SMA_Sale_Inventory_Xrf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" Association="Self.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category">
+      <End Role="SMA_Inventory_Category" EntitySet="SMA_Inventory_Category" />
+      <End Role="SMA_Inventory_Category_Type" EntitySet="SMA_Inventory_Category_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Address_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_Address_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_Address" EntitySet="SMA_Lookup_Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Contact_SMA_Lookup_Address" Association="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address">
+      <End Role="SMA_Lookup_Address" EntitySet="SMA_Lookup_Address" />
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Contact_SMA_Lookup_Address1" Association="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address1">
+      <End Role="SMA_Lookup_Address" EntitySet="SMA_Lookup_Address" />
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Contact_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_Contact_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Customer_SMA_Lookup_Contact" Association="Self.FK_SMA_Lookup_Customer_SMA_Lookup_Contact">
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+      <End Role="SMA_Lookup_Customer" EntitySet="SMA_Lookup_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Designer_SMA_Lookup_Contact" Association="Self.FK_SMA_Lookup_Designer_SMA_Lookup_Contact">
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+      <End Role="SMA_Lookup_Designer" EntitySet="SMA_Lookup_Designer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact" Association="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact">
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" Association="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact">
+      <End Role="SMA_Lookup_Contact" EntitySet="SMA_Lookup_Contact" />
+      <End Role="SMA_Lookup_Vendor" EntitySet="SMA_Lookup_Vendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Customer_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_Customer_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_Customer" EntitySet="SMA_Lookup_Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_SMA_Lookup_Customer" Association="Self.FK_SMA_Sale_SMA_Lookup_Customer">
+      <End Role="SMA_Lookup_Customer" EntitySet="SMA_Lookup_Customer" />
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Designer_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_Designer_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_Designer" EntitySet="SMA_Lookup_Designer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_SMA_Lookup_Designer" Association="Self.FK_SMA_Sale_SMA_Lookup_Designer">
+      <End Role="SMA_Lookup_Designer" EntitySet="SMA_Lookup_Designer" />
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" Association="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role">
+      <End Role="SMA_Lookup_User_Role" EntitySet="SMA_Lookup_User_Role" />
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_SalesRep_SMA_Lookup_User1" Association="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User1">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_SMA_Lookup_SalesRep" Association="Self.FK_SMA_Sale_SMA_Lookup_SalesRep">
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_User_SMA_Lookup_User_Role" Association="Self.FK_SMA_Lookup_User_SMA_Lookup_User_Role">
+      <End Role="SMA_Lookup_User_Role" EntitySet="SMA_Lookup_User_Role" />
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Vendor_SMA_Lookup_User" Association="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_Vendor" EntitySet="SMA_Lookup_Vendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Detail_SMA_Lookup_User" Association="Self.FK_SMA_Sale_Detail_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Sale_Detail" EntitySet="SMA_Sale_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User" Association="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Sale_Inventory_Xrf" EntitySet="SMA_Sale_Inventory_Xrf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_SMA_Lookup_User" Association="Self.FK_SMA_Sale_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Detail_SMA_Sale" Association="Self.FK_SMA_Sale_Detail_SMA_Sale">
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+      <End Role="SMA_Sale_Detail" EntitySet="SMA_Sale_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Inventory_Xrf_SMA_Sale" Association="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Sale">
+      <End Role="SMA_Sale" EntitySet="SMA_Sale" />
+      <End Role="SMA_Sale_Inventory_Xrf" EntitySet="SMA_Sale_Inventory_Xrf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" Association="Self.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type">
+      <End Role="SMA_Sale_Detail_Type" EntitySet="SMA_Sale_Detail_Type" />
+      <End Role="SMA_Sale_Detail" EntitySet="SMA_Sale_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_User_SMA_Lookup_User" Association="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User">
+      <End Role="SMA_Lookup_User" EntitySet="SMA_Lookup_User" />
+      <End Role="SMA_Lookup_User1" EntitySet="SMA_Lookup_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" Association="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep">
+      <End Role="SMA_Lookup_SalesRep" EntitySet="SMA_Lookup_SalesRep" />
+      <End Role="SMA_Lookup_Customer" EntitySet="SMA_Lookup_Customer" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_SMA_Lookup_User_SMA_Lookup_User">
+    <End Type="AppDb_SMAModel.SMA_Lookup_User" Role="SMA_Lookup_User" Multiplicity="0..1" />
+    <End Type="AppDb_SMAModel.SMA_Lookup_User" Role="SMA_Lookup_User1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_User1">
+        <PropertyRef Name="EnterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep">
+    <End Type="AppDb_SMAModel.SMA_Lookup_SalesRep" Role="SMA_Lookup_SalesRep" Multiplicity="0..1" />
+    <End Type="AppDb_SMAModel.SMA_Lookup_Customer" Role="SMA_Lookup_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMA_Lookup_SalesRep">
+        <PropertyRef Name="SalesRepId" />
+      </Principal>
+      <Dependent Role="SMA_Lookup_Customer">
+        <PropertyRef Name="SalesRepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

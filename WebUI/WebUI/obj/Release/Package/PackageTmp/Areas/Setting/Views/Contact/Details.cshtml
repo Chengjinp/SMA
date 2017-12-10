@@ -1,0 +1,146 @@
+﻿@model Repository.DAL.Data.SMA_Lookup_Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryAddressTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryAddressTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryAddressTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryAddressTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NativeLauguage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NativeLauguage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Address.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_Address1.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_Address1.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMA_Lookup_User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMA_Lookup_User.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
