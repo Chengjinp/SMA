@@ -12,7 +12,7 @@ namespace WebUI.Areas.Setting.Controllers
 {
     public class UserRoleController : Controller
     {
-        private AppDb_SMAEntities db = new AppDb_SMAEntities();
+        private AppDb_SMAEntities db = UserDataAccessor.GetDBContext();
 
         // GET: Setting/UserRole
         public ActionResult Index()

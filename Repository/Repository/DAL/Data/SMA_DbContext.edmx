@@ -21,6 +21,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Inventory_Category">
           <Key>
@@ -30,6 +32,8 @@
           <Property Name="Name" Type="varchar" MaxLength="500" />
           <Property Name="Description" Type="varchar" MaxLength="1000" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Inventory_Category_Type">
           <Key>
@@ -40,6 +44,8 @@
           <Property Name="Name" Type="varchar" MaxLength="1000" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Address">
           <Key>
@@ -53,6 +59,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Contact">
           <Key>
@@ -75,6 +83,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Customer">
           <Key>
@@ -88,6 +98,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Designer">
           <Key>
@@ -102,6 +114,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_SalesRep">
           <Key>
@@ -117,6 +131,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_User">
           <Key>
@@ -133,6 +149,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_User_Role">
           <Key>
@@ -141,6 +159,8 @@
           <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Vendor">
           <Key>
@@ -154,6 +174,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Sale">
           <Key>
@@ -171,6 +193,9 @@
           <Property Name="Status" Type="varchar" MaxLength="10" />
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Sale_Detail">
           <Key>
@@ -183,6 +208,8 @@
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Sale_Detail_Type">
           <Key>
@@ -191,6 +218,8 @@
           <Property Name="TypeId" Type="int" Nullable="false" />
           <Property Name="TypeName" Type="varchar" MaxLength="200" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <EntityType Name="SMA_Sale_Inventory_Xrf">
           <Key>
@@ -201,6 +230,9 @@
           <Property Name="ProductionId" Type="int" />
           <Property Name="EnterUserId" Type="int" />
           <Property Name="EnterDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="InActiveDT" Type="datetime" />
+          <Property Name="InActiveBy" Type="int" />
         </EntityType>
         <Association Name="FK_SMA_Inventory_Category_Type_SMA_Inventory_Category">
           <End Role="SMA_Inventory_Category" Type="Self.SMA_Inventory_Category" Multiplicity="0..1" />
@@ -756,6 +788,8 @@
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_User" FromRole="SMA_Inventory" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Lookup_Vendor" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_Vendor" FromRole="SMA_Inventory" ToRole="SMA_Lookup_Vendor" />
           <NavigationProperty Name="SMA_Sale_Inventory_Xrf" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" FromRole="SMA_Inventory" ToRole="SMA_Sale_Inventory_Xrf" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Inventory_Category">
           <Key>
@@ -767,6 +801,8 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category" FromRole="SMA_Inventory_Category" ToRole="SMA_Inventory" />
           <NavigationProperty Name="SMA_Inventory_Category_Type" Relationship="Self.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" FromRole="SMA_Inventory_Category" ToRole="SMA_Inventory_Category_Type" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Inventory_Category_Type">
           <Key>
@@ -779,6 +815,8 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Inventory_Category_Type" FromRole="SMA_Inventory_Category_Type" ToRole="SMA_Inventory" />
           <NavigationProperty Name="SMA_Inventory_Category" Relationship="Self.FK_SMA_Inventory_Category_Type_SMA_Inventory_Category" FromRole="SMA_Inventory_Category_Type" ToRole="SMA_Inventory_Category" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Address">
           <Key>
@@ -795,6 +833,8 @@
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Address_SMA_Lookup_User" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_Contact" />
           <NavigationProperty Name="SMA_Lookup_Contact1" Relationship="Self.FK_SMA_Lookup_Contact_SMA_Lookup_Address1" FromRole="SMA_Lookup_Address" ToRole="SMA_Lookup_Contact" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Contact">
           <Key>
@@ -824,6 +864,8 @@
           <NavigationProperty Name="SMA_Lookup_Designer" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Designer" />
           <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_SalesRep" />
           <NavigationProperty Name="SMA_Lookup_Vendor" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" FromRole="SMA_Lookup_Contact" ToRole="SMA_Lookup_Vendor" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Customer">
           <Key>
@@ -841,6 +883,8 @@
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Customer_SMA_Lookup_User" FromRole="SMA_Lookup_Customer" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Customer" FromRole="SMA_Lookup_Customer" ToRole="SMA_Sale" />
           <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_Customer" ToRole="SMA_Lookup_SalesRep" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Designer">
           <Key>
@@ -858,6 +902,8 @@
           <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_Contact" FromRole="SMA_Lookup_Designer" ToRole="SMA_Lookup_Contact" />
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Designer_SMA_Lookup_User" FromRole="SMA_Lookup_Designer" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_Designer" FromRole="SMA_Lookup_Designer" ToRole="SMA_Sale" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_SalesRep">
           <Key>
@@ -879,6 +925,8 @@
           <NavigationProperty Name="SMA_Lookup_User1" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User1" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Sale" />
           <NavigationProperty Name="SMA_Lookup_Customer" Relationship="AppDb_SMAModel.FK_SMA_Lookup_Customer_SMA_Lookup_SalesRep" FromRole="SMA_Lookup_SalesRep" ToRole="SMA_Lookup_Customer" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_User">
           <Key>
@@ -909,6 +957,8 @@
           <NavigationProperty Name="SMA_Lookup_User1" Relationship="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User" FromRole="SMA_Lookup_User" ToRole="SMA_Lookup_User1" />
           <NavigationProperty Name="SMA_Lookup_User2" Relationship="AppDb_SMAModel.FK_SMA_Lookup_User_SMA_Lookup_User" FromRole="SMA_Lookup_User1" ToRole="SMA_Lookup_User" />
           <Property Name="Sel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_User_Role">
           <Key>
@@ -919,6 +969,8 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="SMA_Lookup_SalesRep" Relationship="Self.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" FromRole="SMA_Lookup_User_Role" ToRole="SMA_Lookup_SalesRep" />
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_User_SMA_Lookup_User_Role" FromRole="SMA_Lookup_User_Role" ToRole="SMA_Lookup_User" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Lookup_Vendor">
           <Key>
@@ -935,6 +987,8 @@
           <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Inventory_SMA_Lookup_Vendor" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Inventory" />
           <NavigationProperty Name="SMA_Lookup_Contact" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_Contact" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Lookup_Contact" />
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Lookup_Vendor_SMA_Lookup_User" FromRole="SMA_Lookup_Vendor" ToRole="SMA_Lookup_User" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Sale">
           <Key>
@@ -958,6 +1012,9 @@
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_SMA_Lookup_User" FromRole="SMA_Sale" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale_Detail" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale" FromRole="SMA_Sale" ToRole="SMA_Sale_Detail" />
           <NavigationProperty Name="SMA_Sale_Inventory_Xrf" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Sale" FromRole="SMA_Sale" ToRole="SMA_Sale_Inventory_Xrf" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
         <EntityType Name="SMA_Sale_Detail">
           <Key>
@@ -973,6 +1030,8 @@
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_Detail_SMA_Lookup_User" FromRole="SMA_Sale_Detail" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale" FromRole="SMA_Sale_Detail" ToRole="SMA_Sale" />
           <NavigationProperty Name="SMA_Sale_Detail_Type" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" FromRole="SMA_Sale_Detail" ToRole="SMA_Sale_Detail_Type" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Sale_Detail_Type">
           <Key>
@@ -982,6 +1041,8 @@
           <Property Name="TypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="SMA_Sale_Detail" Relationship="Self.FK_SMA_Sale_Detail_SMA_Sale_Detail_Type" FromRole="SMA_Sale_Detail_Type" ToRole="SMA_Sale_Detail" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
         </EntityType>
         <EntityType Name="SMA_Sale_Inventory_Xrf">
           <Key>
@@ -995,6 +1056,9 @@
           <NavigationProperty Name="SMA_Inventory" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Inventory" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Inventory" />
           <NavigationProperty Name="SMA_Lookup_User" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Lookup_User" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Lookup_User" />
           <NavigationProperty Name="SMA_Sale" Relationship="Self.FK_SMA_Sale_Inventory_Xrf_SMA_Sale" FromRole="SMA_Sale_Inventory_Xrf" ToRole="SMA_Sale" />
+          <Property Name="InActiveDT" Type="DateTime" Precision="3" />
+          <Property Name="InActiveBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
         <Association Name="FK_SMA_Inventory_SMA_Inventory_Category">
           <End Role="SMA_Inventory_Category" Type="Self.SMA_Inventory_Category" Multiplicity="0..1" />
@@ -1534,6 +1598,8 @@
           <EntitySetMapping Name="SMA_Inventory">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory">
               <MappingFragment StoreEntitySet="SMA_Inventory">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
@@ -1552,6 +1618,8 @@
           <EntitySetMapping Name="SMA_Inventory_Category">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category">
               <MappingFragment StoreEntitySet="SMA_Inventory_Category">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1562,6 +1630,8 @@
           <EntitySetMapping Name="SMA_Inventory_Category_Type">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category_Type">
               <MappingFragment StoreEntitySet="SMA_Inventory_Category_Type">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1573,6 +1643,8 @@
           <EntitySetMapping Name="SMA_Lookup_Address">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Address">
               <MappingFragment StoreEntitySet="SMA_Lookup_Address">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="City" ColumnName="City" />
@@ -1587,6 +1659,8 @@
           <EntitySetMapping Name="SMA_Lookup_Contact">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Contact">
               <MappingFragment StoreEntitySet="SMA_Lookup_Contact">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="ContactId" ColumnName="ContactId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1610,6 +1684,8 @@
           <EntitySetMapping Name="SMA_Lookup_Customer">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Customer">
               <MappingFragment StoreEntitySet="SMA_Lookup_Customer">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -1624,6 +1700,8 @@
           <EntitySetMapping Name="SMA_Lookup_Designer">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Designer">
               <MappingFragment StoreEntitySet="SMA_Lookup_Designer">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
                 <ScalarProperty Name="DesignerNumber" ColumnName="DesignerNumber" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1639,6 +1717,8 @@
           <EntitySetMapping Name="SMA_Lookup_SalesRep">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_SalesRep">
               <MappingFragment StoreEntitySet="SMA_Lookup_SalesRep">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
                 <ScalarProperty Name="SalesRepNo" ColumnName="SalesRepNo" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1655,6 +1735,8 @@
           <EntitySetMapping Name="SMA_Lookup_User">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User">
               <MappingFragment StoreEntitySet="SMA_Lookup_User">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="Sel" ColumnName="Sel" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1672,6 +1754,8 @@
           <EntitySetMapping Name="SMA_Lookup_User_Role">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User_Role">
               <MappingFragment StoreEntitySet="SMA_Lookup_User_Role">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1681,6 +1765,8 @@
           <EntitySetMapping Name="SMA_Lookup_Vendor">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Vendor">
               <MappingFragment StoreEntitySet="SMA_Lookup_Vendor">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="VendorId" ColumnName="VendorId" />
                 <ScalarProperty Name="VendorNumber" ColumnName="VendorNumber" />
                 <ScalarProperty Name="VendorName" ColumnName="VendorName" />
@@ -1695,6 +1781,9 @@
           <EntitySetMapping Name="SMA_Sale">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale">
               <MappingFragment StoreEntitySet="SMA_Sale">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
@@ -1713,6 +1802,8 @@
           <EntitySetMapping Name="SMA_Sale_Detail">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail">
               <MappingFragment StoreEntitySet="SMA_Sale_Detail">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="SaleDetailId" ColumnName="SaleDetailId" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
                 <ScalarProperty Name="DetailType" ColumnName="DetailType" />
@@ -1726,6 +1817,8 @@
           <EntitySetMapping Name="SMA_Sale_Detail_Type">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail_Type">
               <MappingFragment StoreEntitySet="SMA_Sale_Detail_Type">
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1735,6 +1828,9 @@
           <EntitySetMapping Name="SMA_Sale_Inventory_Xrf">
             <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Inventory_Xrf">
               <MappingFragment StoreEntitySet="SMA_Sale_Inventory_Xrf">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+                <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
                 <ScalarProperty Name="xrfId" ColumnName="xrfId" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
                 <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />

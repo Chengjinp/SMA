@@ -4,6 +4,8 @@
     <EntitySetMapping Name="SMA_Inventory">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory">
         <MappingFragment StoreEntitySet="SMA_Inventory">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
@@ -22,6 +24,8 @@
     <EntitySetMapping Name="SMA_Inventory_Category">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category">
         <MappingFragment StoreEntitySet="SMA_Inventory_Category">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -32,6 +36,8 @@
     <EntitySetMapping Name="SMA_Inventory_Category_Type">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Inventory_Category_Type">
         <MappingFragment StoreEntitySet="SMA_Inventory_Category_Type">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -43,6 +49,8 @@
     <EntitySetMapping Name="SMA_Lookup_Address">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Address">
         <MappingFragment StoreEntitySet="SMA_Lookup_Address">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="AddressId" ColumnName="AddressId" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="City" ColumnName="City" />
@@ -57,6 +65,8 @@
     <EntitySetMapping Name="SMA_Lookup_Contact">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Contact">
         <MappingFragment StoreEntitySet="SMA_Lookup_Contact">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="ContactId" ColumnName="ContactId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -80,6 +90,8 @@
     <EntitySetMapping Name="SMA_Lookup_Customer">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Customer">
         <MappingFragment StoreEntitySet="SMA_Lookup_Customer">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -94,6 +106,8 @@
     <EntitySetMapping Name="SMA_Lookup_Designer">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Designer">
         <MappingFragment StoreEntitySet="SMA_Lookup_Designer">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
           <ScalarProperty Name="DesignerNumber" ColumnName="DesignerNumber" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -109,6 +123,8 @@
     <EntitySetMapping Name="SMA_Lookup_SalesRep">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_SalesRep">
         <MappingFragment StoreEntitySet="SMA_Lookup_SalesRep">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
           <ScalarProperty Name="SalesRepNo" ColumnName="SalesRepNo" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -125,6 +141,8 @@
     <EntitySetMapping Name="SMA_Lookup_User">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User">
         <MappingFragment StoreEntitySet="SMA_Lookup_User">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="Sel" ColumnName="Sel" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -142,6 +160,8 @@
     <EntitySetMapping Name="SMA_Lookup_User_Role">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_User_Role">
         <MappingFragment StoreEntitySet="SMA_Lookup_User_Role">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -151,6 +171,8 @@
     <EntitySetMapping Name="SMA_Lookup_Vendor">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Lookup_Vendor">
         <MappingFragment StoreEntitySet="SMA_Lookup_Vendor">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="VendorId" ColumnName="VendorId" />
           <ScalarProperty Name="VendorNumber" ColumnName="VendorNumber" />
           <ScalarProperty Name="VendorName" ColumnName="VendorName" />
@@ -165,6 +187,9 @@
     <EntitySetMapping Name="SMA_Sale">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale">
         <MappingFragment StoreEntitySet="SMA_Sale">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
@@ -183,6 +208,8 @@
     <EntitySetMapping Name="SMA_Sale_Detail">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail">
         <MappingFragment StoreEntitySet="SMA_Sale_Detail">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="SaleDetailId" ColumnName="SaleDetailId" />
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
           <ScalarProperty Name="DetailType" ColumnName="DetailType" />
@@ -196,6 +223,8 @@
     <EntitySetMapping Name="SMA_Sale_Detail_Type">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Detail_Type">
         <MappingFragment StoreEntitySet="SMA_Sale_Detail_Type">
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -205,6 +234,9 @@
     <EntitySetMapping Name="SMA_Sale_Inventory_Xrf">
       <EntityTypeMapping TypeName="AppDb_SMAModel.SMA_Sale_Inventory_Xrf">
         <MappingFragment StoreEntitySet="SMA_Sale_Inventory_Xrf">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InActiveBy" ColumnName="InActiveBy" />
+          <ScalarProperty Name="InActiveDT" ColumnName="InActiveDT" />
           <ScalarProperty Name="xrfId" ColumnName="xrfId" />
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
           <ScalarProperty Name="ProductionId" ColumnName="ProductionId" />

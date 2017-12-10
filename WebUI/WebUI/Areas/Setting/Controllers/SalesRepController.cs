@@ -12,7 +12,7 @@ namespace WebUI.Areas.Setting.Controllers
 {
     public class SalesRepController : Controller
     {
-        private AppDb_SMAEntities db = new AppDb_SMAEntities();
+        private AppDb_SMAEntities db = UserDataAccessor.GetDBContext();
 
         // GET: Setting/SalesRep
         public ActionResult Index()

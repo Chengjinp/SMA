@@ -32,6 +32,8 @@ namespace Repository.DAL.Data
         public Nullable<int> EnterUserId { get; set; }
         public Nullable<System.DateTime> EnterDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
     
         public virtual SMA_Inventory_Category SMA_Inventory_Category { get; set; }
         public virtual SMA_Inventory_Category_Type SMA_Inventory_Category_Type { get; set; }

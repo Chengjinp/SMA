@@ -24,6 +24,8 @@ namespace Repository.DAL.Data
         public int RoleId { get; set; }
         public string RoleName { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SMA_Lookup_SalesRep> SMA_Lookup_SalesRep { get; set; }

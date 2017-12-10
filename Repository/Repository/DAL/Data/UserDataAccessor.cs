@@ -6,14 +6,38 @@ using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace Repository.DAL.Data
 {
    public class UserDataAccessor
     {
+        public static AppDb_SMAEntities GetDBContext()
+        {
+            var dbContext = new AppDb_SMAEntities();
+
+            if(SettingController.Get<int>("IsLive") == 1)
+            {
+                SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+                // Set the properties for the data source.
+                sqlBuilder.DataSource = "APL-MZHANG-W8\\SQLEX2017";
+                sqlBuilder.InitialCatalog = "AppDb_SMA";
+                sqlBuilder.IntegratedSecurity = false;
+                sqlBuilder.UserID = "sma";
+                sqlBuilder.Password = "gtyh68@#";
+
+                dbContext.Database.Connection.ConnectionString = sqlBuilder.ConnectionString;
+            }
+
+            return dbContext;
+        }
+
+
+
+
         public static async Task<SMA_Lookup_User> GetUser(string userName)
         {
-            using (var context = new AppDb_SMAEntities())
+            using (var context = GetDBContext())
             {
                 var users = await (from u in context.SMA_Lookup_User
                                    where u.LoginName == userName
@@ -26,6 +50,9 @@ namespace Repository.DAL.Data
                     return users.First();
             }
         }
+
+
+
 
     }
 }

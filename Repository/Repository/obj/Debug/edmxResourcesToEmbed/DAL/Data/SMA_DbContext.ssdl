@@ -16,6 +16,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Inventory_Category">
     <Key>
@@ -25,6 +27,8 @@
     <Property Name="Name" Type="varchar" MaxLength="500" />
     <Property Name="Description" Type="varchar" MaxLength="1000" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Inventory_Category_Type">
     <Key>
@@ -35,6 +39,8 @@
     <Property Name="Name" Type="varchar" MaxLength="1000" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_Address">
     <Key>
@@ -48,6 +54,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_Contact">
     <Key>
@@ -70,6 +78,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_Customer">
     <Key>
@@ -83,6 +93,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_Designer">
     <Key>
@@ -97,6 +109,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_SalesRep">
     <Key>
@@ -112,6 +126,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_User">
     <Key>
@@ -128,6 +144,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_User_Role">
     <Key>
@@ -136,6 +154,8 @@
     <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="varchar" MaxLength="50" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Lookup_Vendor">
     <Key>
@@ -149,6 +169,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Sale">
     <Key>
@@ -166,6 +188,9 @@
     <Property Name="Status" Type="varchar" MaxLength="10" />
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Sale_Detail">
     <Key>
@@ -178,6 +203,8 @@
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Sale_Detail_Type">
     <Key>
@@ -186,6 +213,8 @@
     <Property Name="TypeId" Type="int" Nullable="false" />
     <Property Name="TypeName" Type="varchar" MaxLength="200" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <EntityType Name="SMA_Sale_Inventory_Xrf">
     <Key>
@@ -196,6 +225,9 @@
     <Property Name="ProductionId" Type="int" />
     <Property Name="EnterUserId" Type="int" />
     <Property Name="EnterDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="InActiveDT" Type="datetime" />
+    <Property Name="InActiveBy" Type="int" />
   </EntityType>
   <Association Name="FK_SMA_Inventory_Category_Type_SMA_Inventory_Category">
     <End Role="SMA_Inventory_Category" Type="Self.SMA_Inventory_Category" Multiplicity="0..1" />

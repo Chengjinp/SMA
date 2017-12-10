@@ -21,6 +21,8 @@ namespace Repository.DAL.Data
         public Nullable<int> EnterUserId { get; set; }
         public Nullable<System.DateTime> EnterDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
     
         public virtual SMA_Lookup_User SMA_Lookup_User { get; set; }
         public virtual SMA_Sale SMA_Sale { get; set; }

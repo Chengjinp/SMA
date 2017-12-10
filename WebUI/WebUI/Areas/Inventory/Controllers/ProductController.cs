@@ -13,7 +13,7 @@ namespace WebUI.Areas.Inventory.Controllers
     [Authorize]
     public class ProductController : Controller
     {
-        private AppDb_SMAEntities db = new AppDb_SMAEntities();
+        private AppDb_SMAEntities db = UserDataAccessor.GetDBContext();
 
         // GET: Inventory/Inventory
         public ActionResult Index(string searchString)
@@ -132,7 +132,10 @@ namespace WebUI.Areas.Inventory.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Inventory sMA_Inventory = db.SMA_Inventory.Find(id);
-            db.SMA_Inventory.Remove(sMA_Inventory);
+            sMA_Inventory.IsActive = false;
+            sMA_Inventory.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Inventory.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

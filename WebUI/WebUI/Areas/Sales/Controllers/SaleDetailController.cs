@@ -13,7 +13,7 @@ namespace WebUI.Areas.Sales.Controllers
     [Authorize]
     public class SaleDetailController : Controller
     {
-        private AppDb_SMAEntities db = new AppDb_SMAEntities();
+        private AppDb_SMAEntities db = UserDataAccessor.GetDBContext();
 
         // GET: Sales/SaleDetail
         public ActionResult Index()

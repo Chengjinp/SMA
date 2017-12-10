@@ -42,6 +42,8 @@ namespace Repository.DAL.Data
         public Nullable<System.DateTime> EnterDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public string Sel { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SMA_Inventory> SMA_Inventory { get; set; }

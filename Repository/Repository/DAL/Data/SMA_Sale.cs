@@ -33,6 +33,9 @@ namespace Repository.DAL.Data
         public string Status { get; set; }
         public Nullable<int> EnterUserId { get; set; }
         public Nullable<System.DateTime> EnterDate { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual SMA_Lookup_Customer SMA_Lookup_Customer { get; set; }
         public virtual SMA_Lookup_Designer SMA_Lookup_Designer { get; set; }

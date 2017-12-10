@@ -40,6 +40,8 @@ namespace Repository.DAL.Data
         public Nullable<int> EnterUserId { get; set; }
         public Nullable<System.DateTime> EnterDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<System.DateTime> InActiveDT { get; set; }
+        public Nullable<int> InActiveBy { get; set; }
     
         public virtual SMA_Lookup_Address SMA_Lookup_Address { get; set; }
         public virtual SMA_Lookup_Address SMA_Lookup_Address1 { get; set; }

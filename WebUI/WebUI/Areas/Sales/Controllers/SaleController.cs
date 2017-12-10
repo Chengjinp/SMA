@@ -13,12 +13,12 @@ namespace WebUI.Areas.Sales.Controllers
     [Authorize]
     public class SaleController : Controller
     {
-        private AppDb_SMAEntities db = new AppDb_SMAEntities();
+        private AppDb_SMAEntities db = UserDataAccessor.GetDBContext();
 
         // GET: Sales/Sale
         public ActionResult Index()
         {
-            var sMA_Sale = db.SMA_Sale.Include(s => s.SMA_Lookup_Customer).Include(s => s.SMA_Lookup_Designer).Include(s => s.SMA_Lookup_SalesRep).Include(s => s.SMA_Lookup_User);
+            var sMA_Sale = db.SMA_Sale.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_Customer).Include(s => s.SMA_Lookup_Designer).Include(s => s.SMA_Lookup_SalesRep).Include(s => s.SMA_Lookup_User);
             return View(sMA_Sale.ToList());
         }
 
@@ -128,7 +128,11 @@ namespace WebUI.Areas.Sales.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Sale sMA_Sale = db.SMA_Sale.Find(id);
-            db.SMA_Sale.Remove(sMA_Sale);
+            sMA_Sale.IsActive = false;
+            sMA_Sale.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Sale.InActiveBy = iden.UserId;
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

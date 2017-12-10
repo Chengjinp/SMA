@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="819aff0b8b7d45d9ba4d45862060bc46" Name="Diagram1" ZoomLevel="75">
+      <Diagram DiagramId="819aff0b8b7d45d9ba4d45862060bc46" Name="Diagram1" ZoomLevel="68">
         <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory" Width="1.5" PointX="4.625" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory_Category" Width="1.875" PointX="1.875" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AppDb_SMAModel.SMA_Inventory_Category_Type" Width="2.625" PointX="1.5" PointY="6.875" IsExpanded="true" />
@@ -40,10 +40,8 @@
         <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_Designer_SMA_Lookup_User" ManuallyRouted="false" />
         <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Sale_SMA_Lookup_Designer" ManuallyRouted="true" >
           <ConnectorPoint PointX="14.96875" PointY="18.25" />
-          <ConnectorPoint PointX="14.96875" PointY="12.741006460503467" />
-          <ConnectorPoint PointX="12.7284375" PointY="12.741006460503467" />
-          <ConnectorPoint PointX="12.7284375" PointY="12.750229989949938" />
-          <ConnectorPoint PointX="11.625" PointY="12.750229989949938" />
+          <ConnectorPoint PointX="14.96875" PointY="13.491689621020797" />
+          <ConnectorPoint PointX="11.625" PointY="13.491689621020797" />
         </AssociationConnector>
         <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_User" ManuallyRouted="false" />
         <AssociationConnector Association="AppDb_SMAModel.FK_SMA_Lookup_SalesRep_SMA_Lookup_User_Role" ManuallyRouted="false" />
