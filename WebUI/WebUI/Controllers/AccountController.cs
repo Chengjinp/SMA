@@ -85,14 +85,14 @@ namespace WebUI.Controllers
             {
                 case Repository.BLL.SignInStatus.Success:
                     {
-
-                        IPrincipal user = new CustomUser(model.UserName, 0, "");
+                        var dbUser = await UserController.GetUser(model.UserName);
+                        CustomUser user = new CustomUser(model.UserName, dbUser.UserId, "");
                         // Actual Authentication
                         HttpContext.User = user;
                         Thread.CurrentPrincipal = user;
 
                         string userData = String.Empty;
-                        userData = userData + "UserName=" + model.UserName;
+                        userData = JsonController.Serialize<CustomUser>(user);
                         FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMinutes(30), true, userData);
                         string encTicket = FormsAuthentication.Encrypt(ticket);
                         HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
@@ -422,7 +422,8 @@ namespace WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            HttpContext.User = null;
+            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
 

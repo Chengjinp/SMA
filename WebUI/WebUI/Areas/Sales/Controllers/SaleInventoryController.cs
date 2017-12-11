@@ -18,7 +18,7 @@ namespace WebUI.Areas.Sales.Controllers
         // GET: Sales/SaleInventory
         public ActionResult Index()
         {
-            var sMA_Sale_Inventory_Xrf = db.SMA_Sale_Inventory_Xrf.Include(s => s.SMA_Inventory).Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Sale);
+            var sMA_Sale_Inventory_Xrf = db.SMA_Sale_Inventory_Xrf.Where(s => s.IsActive != false).Include(s => s.SMA_Inventory).Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Sale);
             return View(sMA_Sale_Inventory_Xrf.ToList());
         }
 
@@ -124,7 +124,10 @@ namespace WebUI.Areas.Sales.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Sale_Inventory_Xrf sMA_Sale_Inventory_Xrf = db.SMA_Sale_Inventory_Xrf.Find(id);
-            db.SMA_Sale_Inventory_Xrf.Remove(sMA_Sale_Inventory_Xrf);
+            sMA_Sale_Inventory_Xrf.IsActive = false;
+            sMA_Sale_Inventory_Xrf.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Sale_Inventory_Xrf.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

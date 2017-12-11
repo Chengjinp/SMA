@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/Designer
         public ActionResult Index()
         {
-            var sMA_Lookup_Designer = db.SMA_Lookup_Designer.Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User);
+            var sMA_Lookup_Designer = db.SMA_Lookup_Designer.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User);
             return View(sMA_Lookup_Designer.ToList());
         }
 
@@ -119,7 +119,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Lookup_Designer sMA_Lookup_Designer = db.SMA_Lookup_Designer.Find(id);
-            db.SMA_Lookup_Designer.Remove(sMA_Lookup_Designer);
+            sMA_Lookup_Designer.IsActive = false;
+            sMA_Lookup_Designer.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Lookup_Designer.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

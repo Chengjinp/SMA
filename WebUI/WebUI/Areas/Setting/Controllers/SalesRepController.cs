@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/SalesRep
         public ActionResult Index()
         {
-            var sMA_Lookup_SalesRep = db.SMA_Lookup_SalesRep.Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Lookup_User_Role).Include(s => s.SMA_Lookup_User1);
+            var sMA_Lookup_SalesRep = db.SMA_Lookup_SalesRep.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Lookup_User_Role).Include(s => s.SMA_Lookup_User1);
             return View(sMA_Lookup_SalesRep.ToList());
         }
 
@@ -127,7 +127,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Lookup_SalesRep sMA_Lookup_SalesRep = db.SMA_Lookup_SalesRep.Find(id);
-            db.SMA_Lookup_SalesRep.Remove(sMA_Lookup_SalesRep);
+            sMA_Lookup_SalesRep.IsActive = false;
+            sMA_Lookup_SalesRep.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Lookup_SalesRep.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

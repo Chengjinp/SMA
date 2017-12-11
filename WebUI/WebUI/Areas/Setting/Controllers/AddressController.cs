@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/Address
         public ActionResult Index()
         {
-            var sMA_Lookup_Address = db.SMA_Lookup_Address.Include(s => s.SMA_Lookup_User);
+            var sMA_Lookup_Address = db.SMA_Lookup_Address.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_User);
             return View(sMA_Lookup_Address.ToList());
         }
 
@@ -115,7 +115,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Lookup_Address sMA_Lookup_Address = db.SMA_Lookup_Address.Find(id);
-            db.SMA_Lookup_Address.Remove(sMA_Lookup_Address);
+            sMA_Lookup_Address.IsActive = false;
+            sMA_Lookup_Address.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Lookup_Address.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

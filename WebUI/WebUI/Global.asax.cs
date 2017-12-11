@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -32,7 +33,11 @@ namespace WebUI
                 // Create an Identity object
                 //CustomIdentity implements System.Web.Security.IIdentity
 
-                string[] userData = authTicket.UserData.Split(new char[] { '=' });
+                //userData = Json(user).Data.ToString();
+
+                //JsonController.Deserialize<IPrincipal>(authTicket.UserData);
+
+                //string[] userData = authTicket.UserData.Split(new char[] { '=' });
 
                 //userData = userData + "UserName=" + model.UserName;
                 //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMinutes(30), true, userData);
@@ -40,8 +45,8 @@ namespace WebUI
 
                 //var dbUser = UserController.GetUser(authTicket.Name).Result;
                 //CustomPrincipal implements System.Web.Security.IPrincipal
-                CustomUser newUser = new CustomUser(userData[1], 0, "");
-                Context.User = newUser;
+                //CustomUser newUser = new CustomUser(userData[1], 0, "");
+                Context.User = (IPrincipal)JsonController.Deserialize<CustomUser>(authTicket.UserData);
             }
         }
     }

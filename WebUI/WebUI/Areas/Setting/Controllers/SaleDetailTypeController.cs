@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/SaleDetailType
         public ActionResult Index()
         {
-            return View(db.SMA_Sale_Detail_Type.ToList());
+            return View(db.SMA_Sale_Detail_Type.Where(s => s.IsActive != false).ToList());
         }
 
         // GET: Setting/SaleDetailType/Details/5
@@ -110,7 +110,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Sale_Detail_Type sMA_Sale_Detail_Type = db.SMA_Sale_Detail_Type.Find(id);
-            db.SMA_Sale_Detail_Type.Remove(sMA_Sale_Detail_Type);
+            sMA_Sale_Detail_Type.IsActive = false;
+            sMA_Sale_Detail_Type.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Sale_Detail_Type.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

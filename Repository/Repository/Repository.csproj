@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\SettingController.cs" />
+    <Compile Include="BLL\JsonController.cs" />
     <Compile Include="BLL\UserController.cs" />
     <Compile Include="DAL\Data\SMA_DbContext.Context.cs">
       <AutoGen>True</AutoGen>

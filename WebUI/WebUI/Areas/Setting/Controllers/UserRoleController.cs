@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/UserRole
         public ActionResult Index()
         {
-            return View(db.SMA_Lookup_User_Role.ToList());
+            return View(db.SMA_Lookup_User_Role.Where(s => s.IsActive != false).ToList());
         }
 
         // GET: Setting/UserRole/Details/5
@@ -110,7 +110,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Lookup_User_Role sMA_Lookup_User_Role = db.SMA_Lookup_User_Role.Find(id);
-            db.SMA_Lookup_User_Role.Remove(sMA_Lookup_User_Role);
+            sMA_Lookup_User_Role.IsActive = false;
+            sMA_Lookup_User_Role.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Lookup_User_Role.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

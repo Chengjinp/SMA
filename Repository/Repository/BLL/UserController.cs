@@ -13,7 +13,7 @@ namespace Repository.BLL
         {
             var user = await UserDataAccessor.GetUser(userName);
 
-            if(user.LoginName == userName && user.PasswordHash == password)
+            if(user.LoginName.ToLower() == userName.ToLower() && user.PasswordHash == password)
                 return SignInStatus.Success;
             else
                 return SignInStatus.Failure;

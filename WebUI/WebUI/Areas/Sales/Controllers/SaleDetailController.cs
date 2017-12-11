@@ -18,7 +18,7 @@ namespace WebUI.Areas.Sales.Controllers
         // GET: Sales/SaleDetail
         public ActionResult Index()
         {
-            var sMA_Sale_Detail = db.SMA_Sale_Detail.Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Sale).Include(s => s.SMA_Sale_Detail_Type);
+            var sMA_Sale_Detail = db.SMA_Sale_Detail.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_User).Include(s => s.SMA_Sale).Include(s => s.SMA_Sale_Detail_Type);
             return View(sMA_Sale_Detail.ToList());
         }
 
@@ -124,7 +124,10 @@ namespace WebUI.Areas.Sales.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Sale_Detail sMA_Sale_Detail = db.SMA_Sale_Detail.Find(id);
-            db.SMA_Sale_Detail.Remove(sMA_Sale_Detail);
+            sMA_Sale_Detail.IsActive = false;
+            sMA_Sale_Detail.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Sale_Detail.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

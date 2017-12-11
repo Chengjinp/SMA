@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/Vendor
         public ActionResult Index()
         {
-            var sMA_Lookup_Vendor = db.SMA_Lookup_Vendor.Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User);
+            var sMA_Lookup_Vendor = db.SMA_Lookup_Vendor.Where(s => s.IsActive != false).Include(s => s.SMA_Lookup_Contact).Include(s => s.SMA_Lookup_User);
             return View(sMA_Lookup_Vendor.ToList());
         }
 
@@ -119,7 +119,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Lookup_Vendor sMA_Lookup_Vendor = db.SMA_Lookup_Vendor.Find(id);
-            db.SMA_Lookup_Vendor.Remove(sMA_Lookup_Vendor);
+            sMA_Lookup_Vendor.IsActive = false;
+            sMA_Lookup_Vendor.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Lookup_Vendor.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

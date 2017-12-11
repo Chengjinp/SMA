@@ -17,7 +17,7 @@ namespace WebUI.Areas.Setting.Controllers
         // GET: Setting/InventoryCategory
         public ActionResult Index()
         {
-            return View(db.SMA_Inventory_Category.ToList());
+            return View(db.SMA_Inventory_Category.Where(s => s.IsActive != false).ToList());
         }
 
         // GET: Setting/InventoryCategory/Details/5
@@ -110,7 +110,10 @@ namespace WebUI.Areas.Setting.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SMA_Inventory_Category sMA_Inventory_Category = db.SMA_Inventory_Category.Find(id);
-            db.SMA_Inventory_Category.Remove(sMA_Inventory_Category);
+            sMA_Inventory_Category.IsActive = false;
+            sMA_Inventory_Category.InActiveDT = DateTime.Now;
+            CustomIdentity iden = (CustomIdentity)HttpContext.User.Identity;
+            sMA_Inventory_Category.InActiveBy = iden.UserId;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

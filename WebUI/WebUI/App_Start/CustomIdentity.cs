@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Security.Principal;
+using System.Runtime.Serialization;
 
 namespace WebUI
 {
+    [Serializable]
+    [KnownType(typeof(CustomIdentity))]
     public class CustomUser : IPrincipal
     {
+        public CustomUser()
+        {
+
+        }
+
         public CustomUser(string name, int userId, string additionalInfo)
         {
             Identity = new CustomIdentity(name, userId, additionalInfo);
@@ -18,8 +26,13 @@ namespace WebUI
         }
     }
 
+    [Serializable]
     public class CustomIdentity : IIdentity
     {
+        public CustomIdentity()
+        {
+
+        }
         public CustomIdentity(string name, int userId, string additionalInfo)
         {
             Name = name;
