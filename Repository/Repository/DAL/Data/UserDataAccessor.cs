@@ -1,16 +1,13 @@
-﻿using Repository.BLL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
+using Repository.BLL;
 
 namespace Repository.DAL.Data
 {
-   public class UserDataAccessor
+    public class UserDataAccessor
     {
         public static AppDb_SMAEntities GetDBContext()
         {
@@ -35,7 +32,7 @@ namespace Repository.DAL.Data
 
 
 
-        public static async Task<SMA_Lookup_User> GetUser(string userName)
+        public static async Task<SMA_Lookup_User> GetUserByUsername(string userName)
         {
             using (var context = GetDBContext())
             {
@@ -50,9 +47,6 @@ namespace Repository.DAL.Data
                     return users.First();
             }
         }
-
-
-
 
     }
 }

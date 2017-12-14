@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CryptoController.cs" />
     <Compile Include="BLL\SettingController.cs" />
     <Compile Include="BLL\JsonController.cs" />
     <Compile Include="BLL\UserController.cs" />

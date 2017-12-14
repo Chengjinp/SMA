@@ -1,17 +1,13 @@
-﻿using Repository.DAL.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Repository.DAL.Data;
 
 namespace Repository.BLL
 {
-   public class UserController
+    public class UserController
     {
         public static async Task<SignInStatus> Login(string userName, string password)
         {
-            var user = await UserDataAccessor.GetUser(userName);
+            var user = await UserDataAccessor.GetUserByUsername(userName);
 
             if(user.LoginName.ToLower() == userName.ToLower() && user.PasswordHash == password)
                 return SignInStatus.Success;
@@ -19,9 +15,9 @@ namespace Repository.BLL
                 return SignInStatus.Failure;
         }
 
-        public static async Task<SMA_Lookup_User> GetUser(string userName)
+        public static async Task<SMA_Lookup_User> GetUserByUsername(string userName)
         {
-            var user = await UserDataAccessor.GetUser(userName);
+            var user = await UserDataAccessor.GetUserByUsername(userName);
 
             return user;
         }
