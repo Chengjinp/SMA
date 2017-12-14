@@ -10,3 +10,12 @@ C:\Help\Lessons\SMA\Repository\Repository\bin\Debug\Newtonsoft.Json.xml
 C:\Help\Lessons\SMA\Repository\Repository\obj\Debug\Repository.dll
 C:\Help\Lessons\SMA\Repository\Repository\obj\Debug\Repository.pdb
 C:\Help\Lessons\SMA\Repository\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\Repository.dll.config
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\Repository.dll
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\Repository.pdb
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\EntityFramework.xml
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\chngjinp\SMA\Repository\Repository\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\chngjinp\SMA\Repository\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+D:\Projects\chngjinp\SMA\Repository\Repository\obj\Debug\Repository.dll
+D:\Projects\chngjinp\SMA\Repository\Repository\obj\Debug\Repository.pdb

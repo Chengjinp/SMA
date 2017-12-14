@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using WebUI.Models;
-using Repository.BLL;
-using System.Security.Principal;
-using System.Threading;
 using System.Web.Security;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Repository.BLL;
+using WebUI.Models;
 
 
 namespace WebUI.Controllers
@@ -85,7 +80,7 @@ namespace WebUI.Controllers
             {
                 case Repository.BLL.SignInStatus.Success:
                     {
-                        var dbUser = await UserController.GetUser(model.UserName);
+                        var dbUser = await UserController.GetUserByUsername(model.UserName);
                         CustomUser user = new CustomUser(model.UserName, dbUser.UserId, "");
                         // Actual Authentication
                         HttpContext.User = user;
