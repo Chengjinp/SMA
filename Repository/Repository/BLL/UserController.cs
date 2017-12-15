@@ -9,10 +9,29 @@ namespace Repository.BLL
         {
             var user = await UserDataAccessor.GetUserByUsername(userName);
 
-            if(user.LoginName.ToLower() == userName.ToLower() && user.PasswordHash == password)
+            if (user == null)
+                return SignInStatus.Failure;
+
+            var inputPasswordHash = CryptoController.GenerateSaltedHash(password, user.Sel);
+
+
+            if(user.PasswordHash == inputPasswordHash)
                 return SignInStatus.Success;
             else
                 return SignInStatus.Failure;
+        }
+
+        public static async Task<SignUpStatus> Register(string userName, string password)
+        {
+            var user = await UserDataAccessor.GetUserByUsername(userName);
+
+            if (user != null)
+                return SignUpStatus.UserExist;
+
+
+
+
+            return SignUpStatus.Success;
         }
 
         public static async Task<SMA_Lookup_User> GetUserByUsername(string userName)

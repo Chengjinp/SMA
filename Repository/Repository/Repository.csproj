@@ -122,6 +122,7 @@
       <DependentUpon>SMA_DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Data\UserDataAccessor.cs" />
+    <Compile Include="Objects\SignUpStatus.cs" />
     <Compile Include="Objects\SignInStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

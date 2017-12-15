@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Repository.BLL
 {
     public class CryptoController
     {
-        private static string CreateSalt(int size)
+        public static string CreateSalt(int size)
         {
             //Generate a cryptographic random number.
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
@@ -16,23 +17,30 @@ namespace Repository.BLL
             return Convert.ToBase64String(buff);
         }
 
-        public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
+        public static string GenerateSaltedHash(string plainText, string salt)
         {
+
+            byte[] bPlainText = Encoding.ASCII.GetBytes(plainText);
+            byte[] bSalt = Encoding.ASCII.GetBytes(salt);
+
             HashAlgorithm algorithm = new SHA256Managed();
 
             byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.Length];
+              new byte[bPlainText.Length + bSalt.Length];
 
-            for (int i = 0; i < plainText.Length; i++)
+            for (int i = 0; i < bPlainText.Length; i++)
             {
-                plainTextWithSaltBytes[i] = plainText[i];
+                plainTextWithSaltBytes[i] = bPlainText[i];
             }
-            for (int i = 0; i < salt.Length; i++)
+            for (int i = 0; i < bSalt.Length; i++)
             {
-                plainTextWithSaltBytes[plainText.Length + i] = salt[i];
+                plainTextWithSaltBytes[bPlainText.Length + i] = bSalt[i];
             }
 
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
+            var bResult = algorithm.ComputeHash(plainTextWithSaltBytes);
+
+            return Encoding.ASCII.GetString(bResult);
+
         }
     }
 }
